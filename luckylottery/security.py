@@ -1,4 +1,4 @@
-USERS = {'editor': 'editor',
+USERS = {'admin': 'admin',
          'viewer': 'viewer'}
 GROUPS = {'editor': ['group:editors']}
 

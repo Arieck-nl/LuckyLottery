@@ -11,7 +11,7 @@ from pyramid.paster import (
 
 from ..models import (
     DBSession,
-    Page,
+    Ticket,
     Base,
     )
 
@@ -32,6 +32,3 @@ def main(argv=sys.argv):
     engine = engine_from_config(settings, 'sqlalchemy.')
     DBSession.configure(bind=engine)
     Base.metadata.create_all(engine)
-    with transaction.manager:
-        model = Page(title='Root', body='<p>Root</p>')
-        DBSession.add(model)
