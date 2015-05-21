@@ -1,0 +1,16 @@
+<div metal:use-macro="view.layout">
+    <div metal:fill-slot="content">
+        <p>
+        <div>E-mail: </div>
+        <div class="email">${email}</div>
+        </p>
+        <p>
+        <div>Ticket numbers:</div>
+        <ul>
+            <li tal:repeat="ticket tickets">
+                    ${ticket.uid}
+            </li>
+        </ul>
+        </p>
+    </div>
+</div>

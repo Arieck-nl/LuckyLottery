@@ -24,6 +24,7 @@ def main(global_config, **settings):
     config.set_authorization_policy(authz_policy)
 
     config.add_route('registration', '/')
+    config.add_route('confirmation', '/confirmation/{email}')
     config.add_static_view(name='static', path='luckylottery:static')
     config.add_static_view('deform_static', 'deform:static/')
     config.scan()

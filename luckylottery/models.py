@@ -23,7 +23,7 @@ Base = declarative_base()
 class Ticket(Base):
     __tablename__ = 'ticket'
     uid = Column(Integer, primary_key=True)
-    email = Column(Text, unique=True)
+    email = Column(Text)
 
     def __init__(self, email):
         self.email = email

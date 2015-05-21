@@ -7,8 +7,12 @@
           href="${request.static_url('luckylottery:static/lottery.css')}"/>
 </head>
 <body>
+<h1>
+    <a href="${request.route_url('registration')}">LuckyLottery</a>
+</h1>
+
 <div id="main">
-    <h1>${title}</h1>
+    <h2>${title}</h2>
 
     <div metal:define-slot="content">
     </div>

@@ -49,7 +49,15 @@ class LotteryViews(object):
             for x in range(0, appstruct['amount']):
                 DBSession.add(Ticket(email))
 
-            url = self.request.route_url('registration')
+            url = self.request.route_url('confirmation', email=email)
             return HTTPFound(url)
 
         return dict(title='Lottery Ticket Registration', form=self.registration_form.render())
+
+    @view_config(route_name='confirmation',
+                 renderer='templates/confirmation.pt')
+    def confirmation(self):
+        email = self.request.matchdict['email']
+        tickets = DBSession.query(Ticket).filter_by(email=email)
+        return dict(title="Confirmation of registration", email=email, tickets=tickets)
+

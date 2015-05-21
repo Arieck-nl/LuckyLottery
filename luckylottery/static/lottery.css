@@ -1,0 +1,9 @@
+body {
+    font-family: Arial;
+    margin: 20px;
+}
+
+.email{
+    margin: 5px;
+    font-style: italic;
+}
