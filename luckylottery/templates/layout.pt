@@ -17,5 +17,6 @@
     <div metal:define-slot="content">
     </div>
 </div>
+<div class="win-link"><a href="${request.route_url('winningticket')}">Today's winner is..</a></div>
 </body>
 </html>

@@ -25,6 +25,7 @@ def main(global_config, **settings):
 
     config.add_route('registration', '/')
     config.add_route('confirmation', '/confirmation/{email}')
+    config.add_route('winningticket', '/winningticket')
     config.add_static_view(name='static', path='luckylottery:static')
     config.add_static_view('deform_static', 'deform:static/')
     config.scan()

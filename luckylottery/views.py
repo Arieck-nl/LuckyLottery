@@ -1,5 +1,6 @@
 import colander
 import deform.widget
+import random
 
 from pyramid.decorator import reify
 from pyramid.httpexceptions import HTTPFound
@@ -60,4 +61,12 @@ class LotteryViews(object):
         email = self.request.matchdict['email']
         tickets = DBSession.query(Ticket).filter_by(email=email)
         return dict(title="Confirmation of registration", email=email, tickets=tickets)
+
+    @view_config(route_name='winningticket',
+                 renderer='templates/winningticket.pt')
+    def confirmation(self):
+        total = DBSession.query(Ticket).count()
+        rand = random.randrange(0, total)
+        ticket = DBSession.query(Ticket)[rand]
+        return dict(title="The winner is", email=ticket.email, ticket=ticket.uid)
 
