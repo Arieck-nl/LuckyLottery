@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html metal:define-macro="layout">
+<head>
+    <title>LuckyLottery - ${title}</title>
+    <more metal:define-slot="head-more"></more>
+    <link rel="stylesheet"
+          href="${request.static_url('luckylottery:static/lottery.css')}"/>
+</head>
+<body>
+<div id="main">
+    <h1>${title}</h1>
+
+    <div metal:define-slot="content">
+    </div>
+</div>
+</body>
+</html>
