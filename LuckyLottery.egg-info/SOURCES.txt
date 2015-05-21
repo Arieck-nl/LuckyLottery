@@ -1,6 +1,4 @@
-MANIFEST.in
 development.ini
-production.ini
 setup.py
 LuckyLottery.egg-info/PKG-INFO
 LuckyLottery.egg-info/SOURCES.txt
@@ -12,9 +10,4 @@ luckylottery/__init__.py
 luckylottery/tests.py
 luckylottery/views.py
 luckylottery.egg-info/SOURCES.txt
-luckylottery/static/pyramid-16x16.png
-luckylottery/static/pyramid.png
-luckylottery/static/theme.css
-luckylottery/static/theme.min.css
 luckylottery/templates/layout.pt
-luckylottery/templates/mytemplate.pt

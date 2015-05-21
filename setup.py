@@ -5,6 +5,7 @@ requires = [
     'pyramid_chameleon',
 ]
 
+# Setup entry points
 setup(name='luckylottery',
       install_requires=requires,
       entry_points="""\

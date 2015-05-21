@@ -9,15 +9,14 @@ from pyramid.security import remember, forget, authenticated_userid
 from pyramid.view import view_config, forbidden_view_config
 
 from .models import DBSession, Ticket
-from .security import USERS
 
-
+#Schema to use for tickets
 class TicketSchema(colander.MappingSchema):
     email = colander.SchemaNode(colander.String())
     amount = colander.SchemaNode(
         colander.Integer(), validator=colander.Range(0, 20))
 
-
+#define all views belonging to to lottery
 class LotteryViews(object):
     def __init__(self, request):
         self.request = request
@@ -40,6 +39,7 @@ class LotteryViews(object):
         if 'confirm' in self.request.params:
             controls = self.request.POST.items()
             try:
+                #try to validate the form
                 appstruct = self.registration_form.validate(controls)
             except deform.ValidationFailure as e:
                 # Form is NOT valid
@@ -59,12 +59,14 @@ class LotteryViews(object):
                  renderer='templates/confirmation.pt')
     def confirmation(self):
         email = self.request.matchdict['email']
+        #select all tickets for this email
         tickets = DBSession.query(Ticket).filter_by(email=email)
         return dict(title="Confirmation of registration", email=email, tickets=tickets)
 
     @view_config(route_name='winningticket',
                  renderer='templates/winningticket.pt')
-    def confirmation(self):
+    def winningticket(self):
+        #pick random ticket out of database as winner
         total = DBSession.query(Ticket).count()
         rand = random.randrange(0, total)
         ticket = DBSession.query(Ticket)[rand]

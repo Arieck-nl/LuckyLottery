@@ -1,12 +1,12 @@
 <div metal:use-macro="view.layout">
     <div metal:fill-slot="content">
         <p>
-        <div>E-mail: </div>
-        <div class="email">${email}</div>
+            <div>E-mail:</div>
+            <div class="email">${email}</div>
         </p>
         <p>
-        <div>Ticket numbers:</div>
-                    ${ticket}
+            <div>Ticket numbers:</div>
+            <div>${ticket}</div>
         </p>
     </div>
 </div>

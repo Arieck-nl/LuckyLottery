@@ -19,7 +19,7 @@ DBSession = scoped_session(
     sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
 
-
+# Model for Ticket
 class Ticket(Base):
     __tablename__ = 'ticket'
     uid = Column(Integer, primary_key=True)
@@ -28,10 +28,3 @@ class Ticket(Base):
     def __init__(self, email):
         self.email = email
 
-
-class Root(object):
-    __acl__ = [(Allow, Everyone, 'view'),
-               (Allow, 'group:editors', 'edit')]
-
-    def __init__(self, request):
-        pass
